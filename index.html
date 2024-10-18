@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading Background Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Set the background of the entire webpage to black */
+        body {
+            background-color: black; /* Change background to black */
+            /* color: white; /* Set text color to white for better visibility */
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        /* Header with text and background image */
+        .fading-header {
+            font-size: 2.5rem; /* Larger text size */
+            color: white; /* Text color */
+            text-align: center;
+            padding: 50px;
+            background-image: url('cms-background.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            height: 800px;
+            display: flex;
+            align-items: center; /* Vertically center the text */
+            justify-content: center; /* Horizontally center the text */
+            flex-direction: column; /* Stack elements vertically */
+        }
+
+        /* Overlay to handle fading of background */
+        .fading-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Initial light transparency (50%) */
+            /* animation: fadeInBackground 3s forwards; /* Fade in animation */
+            z-index: 1;
+        }
+
+        /* Fade animation for the background */
+        @keyframes fadeInBackground {
+            0% {
+                background-color: rgba(0, 0, 0, 0.5); /* Start with 20% opacity */
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 0); /* End with full transparency (0%) */
+            }
+        }
+
+        /* Ensure text stays on top of the fading background */
+        .fading-header h1 {
+            position: relative;
+            z-index: 2; /* Keep text above the fading background */
+            font-size: 4.0rem;
+        }
+
+        /* Text description below header */
+        .description {
+            position: relative;
+            z-index: 2; /* Keep description above the fading background */
+            margin-top: 20px; /* Space between header and description */
+            font-size: 1.8rem; /* Adjust the font size as needed */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333; /* Dark background for the footer */
+            color: white; /* Text color for the footer */
+            text-align: center; /* Center the text */
+            padding: 20px; /* Padding for the footer */
+            margin-top: auto; /* Push footer to the bottom */
+        }
+
+        /* Container styling to maintain a black background */
+        .container {
+            background-color: black; /* Ensuring container is also black */
+            padding: 0; /* Remove padding for full width */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Fading header with background image -->
+        <div class="fading-header">
+            <!-- The fading background overlay -->
+            <div class="fading-background"></div>
+            
+            <!-- The header text -->
+            <h1>Welcome to CMS Open Data</h1>
+
+            <!-- Textual description below header -->
+            <p class="description">Public access to scientific dataset at CMS, LHC<br>Transparent in high-energy physics<br>Explore the potential of open science!</p>
+        </div>
+    </div>
+
+  <!-- Sample Section -->
+  <section class="container my-5">
+    <div class="row">
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card">
+          <img src="sample1.jpg" class="card-img-top" alt="Sample 1">
+          <div class="card-body">
+            <h5 class="card-title">MuonEG Sample</h5>
+            <p class="card-text">Events contain one energetic muon and electron or photon.<br><br><br></p>
+            <a href="sample1.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="sample1.html" class="btn btn-primary">Download Data Files</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card">
+          <img src="sample2.jpg" class="card-img-top" alt="Sample 2">
+          <div class="card-body">
+            <h5 class="card-title">DoubleEG Sample</h5>
+            <p class="card-text">Events contain different combinations of energetic photons, electrons and/or jets.</p>
+            <a href="sample2.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="sample2.html" class="btn btn-primary">Download Data Files</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card">
+          <img src="sample3.jpg" class="card-img-top" alt="Sample 3">
+          <div class="card-body">
+            <h5 class="card-title">DoubleMuon Sample</h5>
+            <p class="card-text">Events contain at least two energetic muons.<br><br><br></p>
+            <a href="sample3.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="sample3.html" class="btn btn-primary">Download Data Files</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card">
+          <img src="sample4.jpg" class="card-img-top" alt="Sample 4">
+          <div class="card-body">
+            <h5 class="card-title">BTagMU Sample</h5>
+            <p class="card-text">Events contain a muon from the b-quark decay, and one or more jets.<br><br></p>
+            <a href="sample4.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="sample4.html" class="btn btn-primary">Download Data Files</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more samples as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>More about CMS Open Data <a href="https://cms-opendata.web.cern.ch/">here</a></p>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
