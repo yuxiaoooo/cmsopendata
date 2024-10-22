@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fading Background Example</title>
+    <title>CMS Open Data</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,7 +23,7 @@
             color: white; /* Text color */
             text-align: center;
             padding: 50px;
-            background-image: url('cms-background.jpg'); /* Replace with your image */
+            /* background-image: url('cms-background.jpg'); /* Replace with your image */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -35,19 +35,67 @@
             flex-direction: column; /* Stack elements vertically */
         }
 
-        /* Overlay to handle fading of background */
-        .fading-background {
+        .fading-header::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Initial light transparency (50%) */
-            /* animation: fadeInBackground 3s forwards; /* Fade in animation */
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.5), /* Transparent at the top */
+                rgba(0, 0, 0, 0.8)  /* Darker at the bottom */
+            ), 
+            url('cms-background.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Keep it behind the text and search bar */
         }
 
-        /* Fade animation for the background */
+        /* General Fading Background Class */
+        .fading-background {
+            display: flex;
+            position: relative;
+            height: 800px; /* Adjust as per your need */
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            overflow: hidden; /* Ensure the ::before pseudo-element doesn't overflow */
+            align-items: center; /* Vertically center the text */
+            justify-content: center; /* Horizontally center the text */
+            flex-direction: column; /* Stack elements vertically */
+        }
+
+        /* Apply the background fading effect using the ::before pseudo-element */
+        .fading-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.5), /* Top transparent */
+                rgba(0, 0, 0, 0.8)  /* Bottom darker */
+            ),
+            url('cms-background.jpg'); /* Replace with your actual image */
+            background-size: cover;
+            background-position: center;
+            flex-direction: column; /* Stack elements vertically */
+            z-index: -1; /* Keep it behind the content */
+        }
+
+        .fading-background h1 {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Text Description */
+        .fading-background p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
         @keyframes fadeInBackground {
             0% {
                 background-color: rgba(0, 0, 0, 0.5); /* Start with 20% opacity */
@@ -81,6 +129,34 @@
             margin-top: auto; /* Push footer to the bottom */
         }
 
+        /* Search bar styling */
+        .search-container {
+            margin-top: 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #218838;
+        }
+
         /* Container styling to maintain a black background */
         .container {
             background-color: black; /* Ensuring container is also black */
@@ -89,19 +165,20 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <!-- Fading header with background image -->
-        <div class="fading-header">
-            <!-- The fading background overlay -->
-            <div class="fading-background"></div>
-            
-            <!-- The header text -->
-            <h1>Welcome to CMS Open Data</h1>
 
-            <!-- Textual description below header -->
-            <p class="description">Public access to scientific dataset at CMS, LHC<br>Transparent in high-energy physics<br>Explore the potential of open science!</p>
+    <!-- Section with Fading Background -->
+    <section class="fading-background">
+        <h1>CMS Open Data</h1>
+        <p>Public access to scientific dataset at CMS, LHC<br>Transparent in high-energy physics<br>Explore the potential of open science!</p>
+        
+        <!-- Search Bar inside the fading background section -->
+        <div class="search-container">
+            <form action="https://www.google.com/search" method="GET">
+                <input type="text" name="query" placeholder="Search CMS Open Data..." required>
+                <button type="submit">Search</button>
+            </form>
         </div>
-    </div>
+    </section>
 
   <!-- Sample Section -->
   <section class="container my-5">
@@ -112,7 +189,7 @@
           <div class="card-body">
             <h5 class="card-title">MuonEG Sample</h5>
             <p class="card-text">Events contain one energetic muon and electron or photon.<br><br><br></p>
-            <a href="sample1.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="https://opendata.cern.ch/search?q=MuonEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
             <a href="sample1.html" class="btn btn-primary">Download Data Files</a>
           </div>
         </div>
@@ -123,7 +200,7 @@
           <div class="card-body">
             <h5 class="card-title">DoubleEG Sample</h5>
             <p class="card-text">Events contain different combinations of energetic photons, electrons and/or jets.</p>
-            <a href="sample2.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="https://opendata.cern.ch/search?q=DoubleEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
             <a href="sample2.html" class="btn btn-primary">Download Data Files</a>
           </div>
         </div>
@@ -134,7 +211,7 @@
           <div class="card-body">
             <h5 class="card-title">DoubleMuon Sample</h5>
             <p class="card-text">Events contain at least two energetic muons.<br><br><br></p>
-            <a href="sample3.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="https://opendata.cern.ch/search?q=DoubleMuon&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
             <a href="sample3.html" class="btn btn-primary">Download Data Files</a>
           </div>
         </div>
@@ -145,7 +222,7 @@
           <div class="card-body">
             <h5 class="card-title">BTagMU Sample</h5>
             <p class="card-text">Events contain a muon from the b-quark decay, and one or more jets.<br><br></p>
-            <a href="sample4.html" class="btn btn-primary mb-2">View Data Sample</a>
+            <a href="https://opendata.cern.ch/search?q=BTagMU&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
             <a href="sample4.html" class="btn btn-primary">Download Data Files</a>
           </div>
         </div>
@@ -156,7 +233,9 @@
 
   <!-- Footer -->
   <footer>
-    <p>More about CMS Open Data <a href="https://cms-opendata.web.cern.ch/">here</a></p>
+    <p>CMS guide to use of Open Data <a href="https://opendata.cern.ch/docs/cms-guide-for-research">here</a></p>
+    <p>CMS data that can be visualized with Fireworks <a href="https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=desc&p=1&s=10&sort=mostrecent">here</a></p>
+    <p>The CERN Open Data project <a href="https://opendata.cern.ch/">here</a></p>
   </footer>
 
   <!-- Bootstrap 5 JS -->
