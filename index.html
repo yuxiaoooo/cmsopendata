@@ -59,7 +59,7 @@
             height: 800px; /* Adjust as per your need */
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 50px;
             overflow: hidden; /* Ensure the ::before pseudo-element doesn't overflow */
             align-items: center; /* Vertically center the text */
             justify-content: center; /* Horizontally center the text */
@@ -86,13 +86,13 @@
         }
 
         .fading-background h1 {
-            font-size: 100px;
+            font-size: 4.0rem;
             margin-bottom: 20px;
         }
 
         /* Additional Text Description */
         .fading-background p {
-            font-size: 20px;
+            font-size: 30px;
             margin: 20px 0;
         }
 
@@ -117,7 +117,7 @@
             position: relative;
             z-index: 2; /* Keep description above the fading background */
             margin-top: 20px; /* Space between header and description */
-            font-size: 1.8rem; /* Adjust the font size as needed */
+            font-size: 2.0rem; /* Adjust the font size as needed */
         }
 
         /* Footer styling */
@@ -168,8 +168,16 @@
 
     <!-- Section with Fading Background -->
     <section class="fading-background">
-        <h1>CMS Open Data</h1>
-        <p>Public access to scientific dataset at CMS, LHC<br>Transparent in high-energy physics<br>Explore the potential of open science!</p>
+      <h1>Welcome to CMS Open Data</h1>
+      <h1>as visualized by</h1>
+      <h1>ROOT-EVE and CMS-Fireworks</h1>
+
+      <!-- Textual description below header -->
+      <p class="description">
+          Public access to scientific datasets of the CMS experiment,<br>
+          a general-purpose detector at the CERN-LHC.<br>
+          Explore the potential of open science!
+      </p>
         
         <!-- Search Bar inside the fading background section -->
         <div class="search-container">
@@ -189,8 +197,8 @@
           <div class="card-body">
             <h5 class="card-title">MuonEG Sample</h5>
             <p class="card-text">Events contain one energetic muon and electron or photon.<br><br><br></p>
-            <a href="https://opendata.cern.ch/search?q=MuonEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
-            <a href="sample1.html" class="btn btn-primary">Download Data Files</a>
+            <a href="/cmsShowWeb/?load_file=/data2/cms/opendata-samples/MuonEG-miniaod.root&fwconfig=MuonEG-opendata.fwc" class="btn btn-primary mb-2">View With Fireworks</a>
+            <a href="https://opendata.cern.ch/search?q=MuonEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary">Visit Opendata page</a>
           </div>
         </div>
       </div>
@@ -200,8 +208,8 @@
           <div class="card-body">
             <h5 class="card-title">DoubleEG Sample</h5>
             <p class="card-text">Events contain different combinations of energetic photons, electrons and/or jets.</p>
-            <a href="https://opendata.cern.ch/search?q=DoubleEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
-            <a href="sample2.html" class="btn btn-primary">Download Data Files</a>
+            <a href="/cmsShowWeb/?load_file=/data2/cms/opendata-samples/DoubleEG-aod.root&fwconfig=DoubleEG-aod-opendata.fwc" class="btn btn-primary mb-2">View With Fireworks</a>
+            <a href="https://opendata.cern.ch/search?q=DoubleEG&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary">Visit OpenData page</a>
           </div>
         </div>
       </div>
@@ -211,8 +219,8 @@
           <div class="card-body">
             <h5 class="card-title">DoubleMuon Sample</h5>
             <p class="card-text">Events contain at least two energetic muons.<br><br><br></p>
-            <a href="https://opendata.cern.ch/search?q=DoubleMuon&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
-            <a href="sample3.html" class="btn btn-primary">Download Data Files</a>
+            <a href="/cmsShowWeb/?load_file=/data2/cms/opendata-samples/DoubleMuon-miniaod.root&fwconfig=DoubleMuon-opendata.fwc" class="btn btn-primary mb-2">View With Fireworks</a>
+            <a href="https://opendata.cern.ch/search?q=DoubleMuon&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary">Visit OpenData page</a>
           </div>
         </div>
       </div>
@@ -222,8 +230,8 @@
           <div class="card-body">
             <h5 class="card-title">BTagMU Sample</h5>
             <p class="card-text">Events contain a muon from the b-quark decay, and one or more jets.<br><br></p>
-            <a href="https://opendata.cern.ch/search?q=BTagMU&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary mb-2">View Data Sample</a>
-            <a href="sample4.html" class="btn btn-primary">Download Data Files</a>
+            <a href="/cmsShowWeb/?load_file=/data2/cms/opendata-samples/BTagMu-miniaod.root&fwconfig=BTagMu-opendata.fwc" class="btn btn-primary mb-2">View With Fireworks</a>
+            <a href="https://opendata.cern.ch/search?q=BTagMU&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=asc&p=1&s=10&sort=bestmatch" class="btn btn-primary">Visit OpenData page</a>
           </div>
         </div>
       </div>
@@ -233,9 +241,11 @@
 
   <!-- Footer -->
   <footer>
-    <p>CMS guide to use of Open Data <a href="https://opendata.cern.ch/docs/cms-guide-for-research">here</a></p>
-    <p>CMS data that can be visualized with Fireworks <a href="https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=desc&p=1&s=10&sort=mostrecent">here</a></p>
-    <p>The CERN Open Data project <a href="https://opendata.cern.ch/">here</a></p>
+    <a href="https://opendata.cern.ch/">CERN Open Data</a>,
+    <a href="https://opendata.cern.ch/docs/cms-guide-for-research">Guide for using CMS Open Data</a>,
+    <a href="https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=file_type%3Aminiaod&f=file_type%3Aminiaodsim&l=list&order=desc&p=1&s=10&sort=mostrecent">
+       CMS data that can be visualized with Fireworks (MiniAod, MiniAodSim)
+    </a>
   </footer>
 
   <!-- Bootstrap 5 JS -->
