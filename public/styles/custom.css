@@ -1,0 +1,153 @@
+body {
+    background-color: black; /* Change background to black */
+    /* color: white; /* Set text color to white for better visibility */
+	margin: 0; /* Remove default margin */
+	height: 100vh; /* Full height of the viewport */
+}
+
+/* Header with text and background image */
+.fading-header {
+    font-size: 2.5rem; /* Larger text size */
+	color: white; /* Text color */
+    text-align: center;
+	padding: 50px;
+	/* background-image: url('cms-background.jpg'); /* Replace with your image */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	height: 800px;
+	display: flex;
+	align-items: center; /* Vertically center the text */
+	justify-content: center; /* Horizontally center the text */
+	flex-direction: column; /* Stack elements vertically */
+}
+
+.fading-header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.5), /* Transparent at the top */
+		rgba(0, 0, 0, 0.8)  /* Darker at the bottom */
+	),
+	url('cms-background.jpg'); /* Background image */
+	background-size: cover;
+	background-position: center;
+	z-index: -1; /* Keep it behind the text and search bar */
+}
+
+/* General Fading Background Class */
+.fading-background {
+	display: flex;
+	position: relative;
+	height: 800px; /* Adjust as per your need */
+	color: white;
+    text-align: center;
+	padding: 50px;
+	overflow: hidden; /* Ensure the ::before pseudo-element doesn't overflow */
+	align-items: center; /* Vertically center the text */
+	justify-content: center; /* Horizontally center the text */
+	flex-direction: column; /* Stack elements vertically */
+}
+
+/* Apply the background fading effect using the ::before pseudo-element */
+.fading-background::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.5), /* Top transparent */
+		rgba(0, 0, 0, 0.8)  /* Bottom darker */
+	),
+	url('../images/cms-background.jpg'); /* Replace with your actual image */
+	background-size: cover;
+	background-position: center;
+	flex-direction: column; /* Stack elements vertically */
+	z-index: -1; /* Keep it behind the content */
+}
+
+.fading-background h1 {
+    font-size: 4.0rem;
+    margin-bottom: 20px;
+}
+
+/* Additional Text Description */
+.fading-background p {
+    font-size: 30px;
+	margin: 20px 0;
+}
+
+@keyframes fadeInBackground {
+    0% {
+	background-color: rgba(0, 0, 0, 0.5); /* Start with 20% opacity */
+    }
+    100% {
+	background-color: rgba(0, 0, 0, 0); /* End with full transparency (0%) */
+    }
+}
+
+/* Ensure text stays on top of the fading background */
+.fading-header h1 {
+	position: relative;
+	z-index: 2; /* Keep text above the fading background */
+	font-size: 4.0rem;
+}
+
+/* Text description below header */
+.description {
+	position: relative;
+	z-index: 2; /* Keep description above the fading background */
+	margin-top: 20px; /* Space between header and description */
+	font-size: 2.0rem; /* Adjust the font size as needed */
+}
+
+/* Footer styling */
+footer {
+    background-color: #333; /* Dark background for the footer */
+	color: white; /* Text color for the footer */
+    text-align: center; /* Center the text */
+	padding: 20px; /* Padding for the footer */
+	margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Search bar styling */
+.search-container {
+    margin-top: 20px;
+}
+
+.search-container input[type="text"] {
+	width: 200px;
+	height: 40px;
+	padding: 10px;
+	font-size: 16px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+}
+
+.search-container button {
+	padding: 8px 18px;
+	font-size: 16px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.search-container button:hover {
+    background-color: #218838;
+}
+
+/* Container styling to maintain a black background */
+.container {
+    background-color: black; /* Ensuring container is also black */
+	padding: 0; /* Remove padding for full width */
+}
