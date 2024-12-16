@@ -21,7 +21,6 @@ To run this webpage, on LXPLUS, do:
 
 ```bash
 voms-proxy-init -voms cms
-cd landing-page
 node server.js
 ```
 
